@@ -1,5 +1,26 @@
 'use strict';
-const numberOfFilms = +prompt('Скільки фільмів ви вже глянули?', '');
+
+
+let result = '';
+const length = 7;
+
+for (let i = 1; i < length; i++) {
+    result += '*';
+    for (j = 1; j < i; j++) {
+        result += '*';
+    }
+    result += '\n';
+};
+
+console.log(result);
+
+
+
+
+
+
+
+/* const numberOfFilms = +prompt('Скільки фільмів ви вже глянули?', '');
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -19,7 +40,7 @@ personalMovieDB.movies[c] = d;
 console.log(personalMovieDB);
 
 
-
+ */
 
 
 
