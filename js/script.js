@@ -1,8 +1,15 @@
 'use strict';
 
+let numberOfFilms;
 
+function start() {
+    numberOfFilms = +prompt('Скільки фільмів ви вже глянули?', '');
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('Скільки фільмів ви вже глянули?', '');
+    }
+}
 
-const numberOfFilms = +prompt('Скільки фільмів ви вже глянули?', '');
+start();
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -11,6 +18,109 @@ const personalMovieDB = {
     genres: [],
     privat: false,
 };
+
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('Ваш останній переглянутий фільм?', '');
+        const b = +prompt('На скільки оцінити його?', '');
+        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+            console.log('Done')
+        } else {
+            console.log('Error')
+            i--;
+        }
+    }
+}
+
+rememberMyFilms();
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+    console.log('Мало фільмів глянув'); 
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log('ю ар класікал зрітель');
+    } else if (personalMovieDB.count >= 30) {
+        console.log('ТИ ДЕМОН');
+    } else {
+        console.log('Error')
+    }
+}
+
+detectPersonalLevel();
+
+function showMyDB(hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB);
+    }
+}
+
+showMyDB(personalMovieDB.privat);
+
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        const genre = prompt(`Ваш любимий жанр під номером ${i}`);
+        personalMovieDB.genres[i - 1] = genre;
+    }
+}
+
+writeYourGenres();
+
+console.log(personalMovieDB);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+function getMathResult(a, b) {
+    let string = '';
+    if (typeof b !== 'number' || b <= 0) {
+        return a;
+    } else {
+        let AA = a;
+        for (let i = 0; i < b; i++) {
+            string += a;
+            if (i < b - 1) {
+                string += '---';
+            }
+            a += AA;
+        }
+        return string;
+    }
+}
+
+console.log(getMathResult(1, 4)); */
+
+
+
+
+
+
+
+
+
+
+
+/* const numberOfFilms = +prompt('Скільки фільмів ви вже глянули?', '');
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+}; */
 
 /* for (let i = 0; i < 2; i++) {
     const a = prompt('Ваш останній переглянутий фільм?', '');
@@ -37,7 +147,7 @@ while (i < 2) {
         i--;
     }
 } */
-
+/* 
 let i = 1;
 do {
     const a = prompt('Ваш останній переглянутий фільм?', '');
@@ -55,8 +165,6 @@ do {
 
 
 
-
-/* ############################################################################## */
 if (personalMovieDB.count < 10) {
     console.log('Мало фільмів глянув'); 
 } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
@@ -70,7 +178,7 @@ if (personalMovieDB.count < 10) {
 console.log(personalMovieDB);
 
 
-
+ */
 
 
 
